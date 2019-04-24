@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LiveData transformation chains test</string>
+    <string name="load">Load</string>
+</resources>
