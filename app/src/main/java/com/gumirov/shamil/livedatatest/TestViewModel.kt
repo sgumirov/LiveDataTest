@@ -20,7 +20,12 @@ class TestViewModel: ViewModel() {
 
     val data = Transformations.switchMap(id) { repo.load(it) }
 
-    val name = Transformations.map(data) { it.name }
-    val email = Transformations.map(data) { it.email }
+    val name = Transformations.map(data) { it?.name }
+    val email = Transformations.map(data) { it?.email }
+    val uid = Transformations.map(data) { transcode(it?.id) }
 
+    private fun transcode(id: String?): String? {
+        id ?: return null
+        return "<$id>"
+    }
 }
