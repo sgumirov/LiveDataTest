@@ -1,3 +1,3 @@
 package com.gumirov.shamil.livedatatest
 
-data class TestData(val name: String, val email: String)
+data class TestData(val id: String, val name: String, val email: String)

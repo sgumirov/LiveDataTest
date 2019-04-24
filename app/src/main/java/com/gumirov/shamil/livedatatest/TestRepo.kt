@@ -8,7 +8,7 @@ class TestRepo {
         val res = MutableLiveData<TestData>()
         Thread(Runnable {
             Thread.sleep(1000)
-            res.postValue(TestData("Name", "email@b.com"))
+            res.postValue(TestData(id, "Name", "email@b.com"))
         }).start()
         return res
     }
