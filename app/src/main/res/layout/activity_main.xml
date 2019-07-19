@@ -34,14 +34,28 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
 
+        <!--<EditText-->
         <TextView
                 android:id="@+id/uid"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@{viewmodel.uid}"
-                android:background="@android:color/holo_orange_light"
+                android:textColor="@android:color/white"
+                android:padding="16dp"
+                android:background="@android:color/holo_red_dark"
                 tools:text="uid"
                 app:layout_constraintTop_toBottomOf="@id/email"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+                android:id="@+id/another_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{viewmodel.anotherName}"
+                android:background="@android:color/holo_green_light"
+                tools:text="Email"
+                app:layout_constraintTop_toBottomOf="@id/uid"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
 
@@ -53,8 +67,19 @@
                 android:text="@string/load"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/uid"
+                app:layout_constraintTop_toBottomOf="@id/another_name"
         />
 
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list"
+                android:background="@android:color/holo_orange_dark"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                tools:listitem="@layout/item"
+                app:layout_constraintTop_toBottomOf="@id/loadbutton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+        />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

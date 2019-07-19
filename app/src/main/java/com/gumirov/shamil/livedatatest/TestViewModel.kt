@@ -18,11 +18,13 @@ class TestViewModel: ViewModel() {
         id.value = "1"
     }
 
-    val data = Transformations.switchMap(id) { repo.load(it) }
+    val data = Transformations.switchMap(id) { id -> repo.load(id) }
+    val anotherData = Transformations.switchMap(data) { if (it != null) repo.load(it.id) else null }
 
-    val name = Transformations.map(data) { it?.name }
-    val email = Transformations.map(data) { it?.email }
+    val name = Transformations.map(data) { it?.name ?: "NONE" }
+    val email = Transformations.map(data) { it?.email ?: "NONE" }
     val uid = Transformations.map(data) { transcode(it?.id) }
+    val anotherName = Transformations.map(anotherData) { it?.name ?: "NONE" }
 
     private fun transcode(id: String?): String? {
         id ?: return null
